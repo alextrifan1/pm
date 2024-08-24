@@ -5,6 +5,7 @@ A Java application that allows users to easily add songs and generate playlists.
 ## Features
 
 - javafx interface
+- JUnit tests
 - error handling
 - sqlite integration
 - factory implementation
