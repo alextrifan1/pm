@@ -1,4 +1,6 @@
 package Domain;
 
-public class IEntityFactory {
+public interface IEntityFactory<T extends Entity> {
+    T createEntity(String line);
+    String saveEntity(T entity);
 }
