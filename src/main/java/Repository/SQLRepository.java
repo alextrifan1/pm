@@ -50,7 +50,7 @@ public class SQLRepository extends MRepository<Piesa> {
     private void createTable() {
         try (final Statement stmt = connection.createStatement()) {
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS piesa " +
-                    "(id int, formatie nvarchat(50), " +
+                    "(id int, formatie nvarchar(50), " +
                     "titlu nvarchar(50), genMuzical nvarchar(50), " +
                     "durata nvarchar(50))");
         } catch (SQLException e) {
@@ -103,10 +103,10 @@ public class SQLRepository extends MRepository<Piesa> {
     @Override
     public void remove(int id) {
         super.remove(id);
-//        try (final Statement stmt = connection.createStatement()) {
-//            stmt.executeUpdate("DELETE FROM activitati WHERE id = " + id);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try (final Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate("DELETE FROM piesa WHERE id = " + id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
