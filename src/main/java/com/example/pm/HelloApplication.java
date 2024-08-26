@@ -2,6 +2,7 @@ package com.example.pm;
 
 import Domain.Entity;
 import Domain.Piesa;
+import Repository.ExceptionRepository;
 import Repository.IRepository;
 import Repository.MRepository;
 import Repository.SQLRepository;
@@ -16,7 +17,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ExceptionRepository {
         IRepository<Piesa> repository = new SQLRepository("radio.sqlite");
         Service service = new Service(repository);
 

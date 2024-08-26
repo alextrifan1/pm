@@ -22,7 +22,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void add() {
+    void add() throws ExceptionRepository {
         repository.add(entity1);
         repository.add(entity2);
 
@@ -35,7 +35,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void remove() {
+    void remove() throws ExceptionRepository {
         repository.add(entity1);
         repository.add(entity2);
 
@@ -48,7 +48,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void update() {
+    void update() throws ExceptionRepository {
         repository.add(entity1);
 
         Entity updatedEntity = new Entity(1);
@@ -58,7 +58,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void getAll() {
+    void getAll() throws ExceptionRepository {
         repository.add(entity1);
         repository.add(entity2);
 
@@ -69,7 +69,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void findById() {
+    void findById() throws ExceptionRepository {
         repository.add(entity1);
 
         assertEquals(entity1, repository.findById(1));
@@ -77,7 +77,7 @@ class MRepositoryTest {
     }
 
     @Test
-    void iterator() {
+    void iterator() throws ExceptionRepository {
         repository.add(entity1);
         repository.add(entity2);
 

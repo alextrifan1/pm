@@ -36,7 +36,7 @@ class SQLRepositoryTest {
     }
 
     @Test
-    void add() {
+    void add() throws ExceptionRepository {
         Piesa newPiesa = new Piesa(18, "New Artist", "New Song", "Pop", "3:45");
         repository.add(newPiesa);
 

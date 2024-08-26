@@ -12,7 +12,7 @@ public class SQLRepository extends MRepository<Piesa> {
     private String dbLocation;
     private Connection connection;
 
-    public SQLRepository(String dbLocation) {
+    public SQLRepository(String dbLocation) throws ExceptionRepository {
         super();
         this.dbLocation = "jdbc:sqlite:" + dbLocation;
         openConnection();
@@ -21,7 +21,7 @@ public class SQLRepository extends MRepository<Piesa> {
         initData();
     }
 
-    private void initData() {
+    private void initData() throws ExceptionRepository {
         if (entities.size() == 0) {
             add(new Piesa(1, "The Beatles", "Hey Jude", "Rock", "7:11"));
             add(new Piesa(2, "The Beatles", "Yesterday", "Rock", "2:05"));
@@ -88,7 +88,7 @@ public class SQLRepository extends MRepository<Piesa> {
         return piese;
     }
     @Override
-    public void add(Piesa p) {
+    public void add(Piesa p) throws ExceptionRepository {
         super.add(p);
         try (final Statement stmt = connection.createStatement()) {
             stmt.executeUpdate("INSERT INTO piesa VALUES (" + p.getId() + ", '" +

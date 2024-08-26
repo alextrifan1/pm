@@ -1,6 +1,7 @@
 package com.example.pm;
 
 import Domain.Piesa;
+import Repository.ExceptionRepository;
 import Repository.IRepository;
 import Service.Service;
 import javafx.collections.FXCollections;
@@ -40,7 +41,7 @@ public class HelloController {
     private Label welcomeText;
 
     @FXML
-    void onAddButtonMouseClicked(MouseEvent event) {
+    void onAddButtonMouseClicked(MouseEvent event) throws ExceptionRepository {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid Input");
         alert.setHeaderText(null);

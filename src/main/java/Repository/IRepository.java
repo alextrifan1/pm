@@ -5,7 +5,7 @@ import Domain.Entity;
 import java.util.Collection;
 
 public interface IRepository<T extends Entity> extends Iterable<T> {
-    void add(T entity);
+    void add(T entity) throws ExceptionRepository;
     void remove(int id);
     void update(int pos, T entity);
     T findById(int id);

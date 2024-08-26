@@ -15,9 +15,13 @@ public class MRepository<T extends Entity> implements IRepository<T> {
     }
 
     @Override
-    public void add(T entity) {
+    public void add(T entity) throws ExceptionRepository {
+        if (entity == null)
+            throw new IllegalArgumentException("can't add null entity");
         if (findById((entity.getId())) == null)
             entities.add(entity);
+        else
+            throw new DuplicateObjectException("aa");
     }
 
     @Override

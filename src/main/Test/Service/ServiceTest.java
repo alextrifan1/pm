@@ -1,6 +1,7 @@
 package Service;
 
 import Domain.Piesa;
+import Repository.ExceptionRepository;
 import Repository.IRepository;
 import Repository.MRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,14 +20,14 @@ class ServiceTest {
         service = new Service<Piesa>(repository);
     }
     @Test
-    void add() {
+    void add() throws ExceptionRepository {
         Piesa piesa = new Piesa(1, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         service.add(piesa);
         assertTrue(service.getAll().contains(piesa));
     }
 
     @Test
-    void delete() {
+    void delete() throws ExceptionRepository {
         Piesa piesa = new Piesa(1, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         Piesa piesa2 = new Piesa(2, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         service.add(piesa);
@@ -37,7 +38,7 @@ class ServiceTest {
     }
 
     @Test
-    void update() {
+    void update() throws ExceptionRepository {
         Piesa piesa = new Piesa(1, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         service.add(piesa);
         Piesa piesa2 = new Piesa(2, "The Weeknd", "Dawn Fm", "Pop", "3:33");
@@ -46,7 +47,7 @@ class ServiceTest {
     }
 
     @Test
-    void getAll() {
+    void getAll() throws ExceptionRepository {
         Piesa piesa1 = new Piesa(1, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         Piesa piesa2 = new Piesa(2, "Queen", "Bohemian Rhapsody", "Rock", "5:55");
         Piesa piesa3 = new Piesa(3, "Queen", "Bohemian Rhapsody", "Rock", "5:55");

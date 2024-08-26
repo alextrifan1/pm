@@ -2,6 +2,7 @@ package Service;
 
 import Domain.Entity;
 import Domain.Piesa;
+import Repository.ExceptionRepository;
 import Repository.IRepository;
 
 import java.util.Collection;
@@ -14,8 +15,7 @@ public class Service<T extends Entity> {
 
         this.repo = repo;
     }
-    public void add(Piesa a) {
-
+    public void add(Piesa a) throws ExceptionRepository {
         repo.add(a);
     }
     public void delete(int id) {
